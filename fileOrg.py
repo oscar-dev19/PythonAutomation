@@ -12,7 +12,7 @@ pictures = home / "Pictures"
 videos = home / "Videos"
 
 # Define the file formats
-image_formats = ['.jpg', '.png', '.jpeg', '.gif', '.bmp', '.tiff']
+image_formats = ['.jpg', '.png', '.jpeg', '.gif', '.bmp', '.tiff', '.dng']
 document_formats = ['.pdf', '.docx', '.doc', '.txt', '.csv', '.xlsx', '.xls']
 video_formats = ['.mp4', '.avi', '.mov', '.mkv', '.mp3', '.wav', '.mpg', '.mpeg']
 audio_formats = ['.mp3', '.wav', '.flac', '.aac', '.ogg']
