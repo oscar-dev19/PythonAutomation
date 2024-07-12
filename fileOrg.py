@@ -3,6 +3,15 @@ from pathlib import Path
 import aiofiles
 import aiofiles.os
 import argparse
+import os
+import shutil
+import time
+import asyncio
+import sys
+from pathlib import Path
+import aiofiles
+import aiofiles.os
+import argparse
 
 # Define the file formats
 image_formats = ['.jpg', '.png', '.jpeg', '.gif', '.bmp', '.tiff', '.dng']
@@ -14,7 +23,8 @@ archive_formats = ['.zip', '.rar', '.7z', '.tar', '.gz', '.bz2', '.xz', '.zst']
 source_files = ['.py', '.java', '.cpp', '.c', '.js', '.ts', '.json', '.md', '.mdx', '.html', '.css', '.scss', '.sass', '.xml', '.yaml', '.yml', '.sh', '.bash', '.zsh', '.ps1', '.bat', '.cmd']
 
 async def move_file(file_path, destination):
-    """A asynchronous function to move files from the downloads folder to the appropriate folder.
+    """
+    A asynchronous function to move files from the downloads folder to the appropriate folder.
 
     Args:
         file_path (Path): The path to the file to move.
@@ -53,11 +63,10 @@ async def main(directory):
     while True:
         if Path(directory).exists() and Path(directory).is_dir():
             await organize_files(directory)
-        await asyncio.sleep(60)  # Wait for 60 seconds before checking again
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Organize files in a specified directory.")
-    parser.add_argument("directory", nargs="?", default=".", help="The directory to organize files in. Defaults to the current directory.")
+    parser = argparse.ArgumentParser(description="Organize files in a directory.")
+    parser.add_argument("-d", "--directory", type=str, required=True, help="The directory to organize.")
     args = parser.parse_args()
 
     asyncio.run(main(args.directory))
